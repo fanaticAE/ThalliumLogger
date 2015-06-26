@@ -20,6 +20,15 @@ namespace fanaticae.Logger
 		/// </summary>
 		/// <value>The size of the cache.</value>
 		public static int CacheSize { get{ return logger.CacheSize; } set{ logger.CacheSize =value; } }
+		/// <summary>
+		/// Gets or sets the max cache time in milliseconds.
+		/// The max cache time might not be 0! Set UseCache to false instead!
+		/// This is 5000 (5 seconds) per default. 
+		/// If you change this value during runtime call Flush to make it take effect immediately.
+		/// </summary>
+		/// <value>The max cache time.</value>
+		public static int MaxCacheTime { get{return logger.MaxCacheTime;} set{logger.MaxCacheTime = value;}}
+
 
 		/// <summary>
 		/// Gets a value indicating whether this <see cref="fanaticae.Logger.Log"/> is running.
@@ -41,6 +50,10 @@ namespace fanaticae.Logger
 		/// </summary>
 		public static void Stop(){
 			logger.Stop (); 
+		}
+
+		public static void Flush(){
+			logger.Flush (); 
 		}
 
 		/// <summary>
