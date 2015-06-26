@@ -50,6 +50,8 @@ The following output is produced:
 
      CRITICAL - 2015-06-26T21:55:36.5230160Z [TAG]: Critical
 
+Now to the cached parts 
+
     	Thread.Sleep (5000); 
 After waiting for the maximum cache time the rest is also logged. The generated output is:
 
