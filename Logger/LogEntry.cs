@@ -43,7 +43,7 @@ namespace fanaticae.Logger
 			return String.Format ("{0} - {1} [{2}]: {3} {4}", getLevelText (Level), DateTime.ToString ("O"), Tag, Message, getExceptionString (Exception)); 
 		}
 
-		public string toFormatString(string format){
+		public string ToFormatString(string format){
 			/*
 			 *  %l Level     -> {0}
 			 *  %t Time      -> {1}

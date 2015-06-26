@@ -17,18 +17,18 @@ namespace fanaticae.Logger
 			:base(identifier,logImmediate, highestLevel, useCustomFormat, customFormat)
 		{}
 
-		public override void log (LogEntry entry)
+		public override void Log (LogEntry entry)
 		{
 			if (entry.Level <= HighestLevel)
 				if (this.UseCustomFormat)
-					Console.WriteLine (entry.toFormatString (this.CustomFormat));
+					Console.WriteLine (entry.ToFormatString (this.CustomFormat));
 				else
 					Console.WriteLine (entry.ToString ()); 
 		}
-		public override void log (System.Collections.Generic.List<LogEntry> entrys)
+		public override void Log (System.Collections.Generic.List<LogEntry> entrys)
 		{
 			foreach (LogEntry entry in entrys)
-				log (entry); 
+				Log (entry); 
 		}
 
 

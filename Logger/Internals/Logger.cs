@@ -65,14 +65,14 @@ namespace fanaticae.Logger
 			}
 		}
 
-		public void addTarget(LogTarget target){
+		public void AddTarget(LogTarget target){
 			if (targets.ContainsKey (target.Identifier))
 				throw new Exception ("Identifier is already in use"); 
 
 			targets.Add (target.Identifier, target); 
 		}
 
-		public void removeTarget(string identifier, bool flushBeforeRemoval = true){
+		public void RemoveTarget(string identifier, bool flushBeforeRemoval = true){
 			if (flushBeforeRemoval)
 				Flush (); 
 			if (targets.ContainsKey (identifier))
@@ -82,7 +82,7 @@ namespace fanaticae.Logger
 		public void Log(LogEntry entry){
 			foreach (LogTarget t in targets.Values)
 				if (t.LogImmediate)
-					t.log (entry); 
+					t.Log (entry); 
 
 			cache.Enqueue (entry); 
 
@@ -99,7 +99,7 @@ namespace fanaticae.Logger
 		private void writeLog(){
 			foreach (LogTarget t in targets.Values) 
 				if (!t.LogImmediate)
-					t.log (cache.ToList ()); 
+					t.Log (cache.ToList ()); 
 			cache.Drop (); 
 		}
 		private void executeLogging(){

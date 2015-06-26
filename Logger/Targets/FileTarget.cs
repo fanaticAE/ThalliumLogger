@@ -26,27 +26,27 @@ namespace fanaticae.Logger
 			this.Filepath = filepath; 
 		}
 
-		public override void log (LogEntry entry) {
+		public override void Log (LogEntry entry) {
 			checkFile (); 
 
 			if (entry.Level <= HighestLevel) {
 				if (this.UseCustomFormat)
 					File.AppendAllLines (this.Filepath, new string[]{ entry.ToString () });
 				else
-					File.AppendAllLines (this.Filepath, new string[]{ entry.toFormatString (this.CustomFormat) }); 
+					File.AppendAllLines (this.Filepath, new string[]{ entry.ToFormatString (this.CustomFormat) }); 
 			}
 		}
 
-		public override void log (List<LogEntry> entrys){
+		public override void Log (List<LogEntry> entrys){
 			checkFile (); 
 
 			List<string> lineBuffer = new List<string> (); 
 			foreach (LogEntry e in entrys) {
 				if (e.Level <= HighestLevel) {
 					if (this.UseCustomFormat)
-						lineBuffer.Add (e.toFormatString (this.CustomFormat));
+						lineBuffer.Add (e.ToFormatString (this.CustomFormat));
 					else
-						lineBuffer.Add (e.toFormatString (this.CustomFormat)); 
+						lineBuffer.Add (e.ToFormatString (this.CustomFormat)); 
 				}
 			}
 			File.AppendAllLines (this.Filepath, lineBuffer); 

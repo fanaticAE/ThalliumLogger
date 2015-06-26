@@ -21,8 +21,8 @@ namespace fanaticae.Logger
 			this.CustomFormat = customFormat; 
 		}
 
-		public abstract void log (LogEntry entry); 
-		public abstract void log (List<LogEntry> entrys); 
+		public abstract void Log (LogEntry entry); 
+		public abstract void Log (List<LogEntry> entrys); 
 	}
 }
 
