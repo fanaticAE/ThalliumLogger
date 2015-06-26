@@ -12,7 +12,7 @@ It offers:
  - Tagging  
   Each Message can be given it's own tag. 
  - Caching  
-  Cachesize can be choosen. (Maximal Cache time is in development) 
+  Cachesize and maximal time can be choosen.
   Caching can be disabled for each Output.
   You can set a lowest level to be cached, so that a message with a level lower than this one flushes the cache and writes immediately to all outputs. 
  - Custom Output Format  
