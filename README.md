@@ -47,6 +47,7 @@ The same as above but with a different level and message.
     Log.critical ("TAG", "Critical"); 
 Here the Level is at critical, so _ImmediateSTDOUT_ logs the message. 
 The following output is produced:
+
      CRITICAL - 2015-06-26T21:55:36.5230160Z [TAG]: Critical
 
     	Thread.Sleep (5000); 
