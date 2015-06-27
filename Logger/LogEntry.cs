@@ -61,14 +61,29 @@ namespace fanaticae.Logger
 				return string.Empty;
 			else {
 				StringBuilder sb = new StringBuilder (); 
-				sb.Append (Environment.NewLine); 
-				sb.AppendLine ("Message: " + ex.Message); 
-				if (ex.InnerException != null)
-					sb.AppendLine ("Inner: " + ex.InnerException.ToString ()); 
-				sb.AppendLine ("Stack Trace:" + ex.StackTrace); 
+				sb.Append (Environment.NewLine);
+				Exception formattingException = ex; 
+				for (int i = 0; true; i++) {
+					for(int x = 0; x<i; x++) sb.Append(" "); 
+					sb.AppendFormat("{0}:{1}",formattingException.GetType().Name,formattingException.Message);
+					sb.AppendLine (); 
+					if(formattingException.InnerException != null) 
+						formattingException = formattingException.InnerException; 
+					else break; 
+				}
+				if (ex.StackTrace != null) {
+					sb.AppendLine ("Stack Trace:"); 
+					foreach (string s in ex.StackTrace.Split('\n')) {
+						sb.Append (" ");
+						sb.AppendLine (s); 
+					}
+				}
 				return sb.ToString ();
 			}
 		}
+
+
+
 		private static string getLevelText(LogLevel level){
 			switch (level) {
 			case LogLevel.EMERGENCY:
